@@ -1,0 +1,53 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/gurki/Game_Engines_Assignment/Game_Engines_Assignment.csproj": {}
+  },
+  "projects": {
+    "/home/gurki/Game_Engines_Assignment/Game_Engines_Assignment.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/gurki/Game_Engines_Assignment/Game_Engines_Assignment.csproj",
+        "projectName": "Game_Engines_Assignment",
+        "projectPath": "/home/gurki/Game_Engines_Assignment/Game_Engines_Assignment.csproj",
+        "packagesPath": "/home/gurki/.nuget/packages/",
+        "outputPath": "/home/gurki/Game_Engines_Assignment/.mono/temp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/gurki/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.2, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/dotnet6-6.0.109/sdk/6.0.109/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

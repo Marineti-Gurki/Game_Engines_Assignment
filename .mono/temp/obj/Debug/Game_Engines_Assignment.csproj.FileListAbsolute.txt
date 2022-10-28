@@ -1,0 +1,9 @@
+/home/gurki/Game_Engines_Assignment/.mono/temp/obj/Debug/Game_Engines_Assignment.csproj.AssemblyReference.cache
+/home/gurki/Game_Engines_Assignment/.mono/temp/obj/Debug/Game_Engines_Assignment.GeneratedMSBuildEditorConfig.editorconfig
+/home/gurki/Game_Engines_Assignment/.mono/temp/obj/Debug/Game_Engines_Assignment.AssemblyInfoInputs.cache
+/home/gurki/Game_Engines_Assignment/.mono/temp/obj/Debug/Game_Engines_Assignment.AssemblyInfo.cs
+/home/gurki/Game_Engines_Assignment/.mono/temp/obj/Debug/Game_Engines_Assignment.csproj.CoreCompileInputs.cache
+/home/gurki/Game_Engines_Assignment/.mono/temp/bin/Debug/Game_Engines_Assignment.dll
+/home/gurki/Game_Engines_Assignment/.mono/temp/bin/Debug/Game_Engines_Assignment.pdb
+/home/gurki/Game_Engines_Assignment/.mono/temp/obj/Debug/Game_Engines_Assignment.dll
+/home/gurki/Game_Engines_Assignment/.mono/temp/obj/Debug/Game_Engines_Assignment.pdb

@@ -1,0 +1,17 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://perlinnose.png" type="Texture" id=1]
+
+[resource]
+albedo_color = Color( 0.345098, 0.345098, 0.345098, 1 )
+metallic = 0.53
+metallic_specular = 0.55
+roughness_texture = ExtResource( 1 )
+depth_enabled = true
+depth_scale = 0.05
+depth_deep_parallax = true
+depth_min_layers = 8
+depth_max_layers = 32
+depth_flip_tangent = false
+depth_flip_binormal = false
+depth_texture = ExtResource( 1 )
