@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://metalic.tres" type="Material" id=1]
 [ext_resource path="res://FloatingLavalamp.cs" type="Script" id=2]
 [ext_resource path="res://MainCamera.cs" type="Script" id=3]
 [ext_resource path="res://LavaShader.tres" type="Shader" id=4]
+[ext_resource path="res://MainGame.cs" type="Script" id=5]
 
 [sub_resource type="CylinderMesh" id=1]
 
@@ -103,6 +104,7 @@ height = 0.5
 [sub_resource type="Environment" id=26]
 
 [node name="MainGame" type="Spatial"]
+script = ExtResource( 5 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.20591, 5.64048 )

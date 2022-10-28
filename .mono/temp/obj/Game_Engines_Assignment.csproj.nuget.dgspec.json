@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/gurki/Game_Engines_Assignment/Game_Engines_Assignment.csproj": {}
+    "E:\\UniY4\\GameEngines\\Game_Engines_Assignment\\Game_Engines_Assignment.csproj": {}
   },
   "projects": {
-    "/home/gurki/Game_Engines_Assignment/Game_Engines_Assignment.csproj": {
+    "E:\\UniY4\\GameEngines\\Game_Engines_Assignment\\Game_Engines_Assignment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/gurki/Game_Engines_Assignment/Game_Engines_Assignment.csproj",
+        "projectUniqueName": "E:\\UniY4\\GameEngines\\Game_Engines_Assignment\\Game_Engines_Assignment.csproj",
         "projectName": "Game_Engines_Assignment",
-        "projectPath": "/home/gurki/Game_Engines_Assignment/Game_Engines_Assignment.csproj",
-        "packagesPath": "/home/gurki/.nuget/packages/",
-        "outputPath": "/home/gurki/Game_Engines_Assignment/.mono/temp/obj/",
+        "projectPath": "E:\\UniY4\\GameEngines\\Game_Engines_Assignment\\Game_Engines_Assignment.csproj",
+        "packagesPath": "C:\\Users\\Matiss\\.nuget\\packages\\",
+        "outputPath": "E:\\UniY4\\GameEngines\\Game_Engines_Assignment\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/gurki/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Matiss\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net472"
@@ -37,15 +37,7 @@
       "frameworks": {
         "net472": {
           "targetAlias": "net472",
-          "dependencies": {
-            "Microsoft.NETFramework.ReferenceAssemblies": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[1.0.2, )",
-              "autoReferenced": true
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/dotnet6-6.0.109/sdk/6.0.109/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
