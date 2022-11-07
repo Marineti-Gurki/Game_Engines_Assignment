@@ -21,6 +21,6 @@ public class MainCamera : Camera
 
     public override void _PhysicsProcess(float delta)
     {
-        LookAt(TrackedObject.Translation, Vector3.Up);
+        // LookAt(TrackedObject.Translation, Vector3.Up);
     }
 }

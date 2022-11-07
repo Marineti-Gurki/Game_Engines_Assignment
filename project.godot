@@ -12,11 +12,21 @@ config_version=4
 
 config/name="Game_Engines_Assignment"
 run/main_scene="res://MainGame.tscn"
+boot_splash/image="res://gameengines1Assignment.png"
 config/icon="res://icon.png"
 
 [debug]
 
 settings/stdout/print_fps=true
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+
+[gdnative]
+
+singletons=[ "res://addons/godot-openvr/godot_openvr.gdnlib" ]
 
 [gui]
 

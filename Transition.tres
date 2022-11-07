@@ -1,0 +1,159 @@
+[gd_resource type="VisualShader" load_steps=16 format=2]
+
+[ext_resource path="res://gameengines1Assignment.png" type="Texture" id=1]
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id=8]
+
+[sub_resource type="VisualShaderNodeInput" id=9]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeScalarOp" id=10]
+operator = 3
+
+[sub_resource type="VisualShaderNodeVectorDistance" id=11]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id=12]
+
+[sub_resource type="VisualShaderNodeInput" id=13]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorCompose" id=14]
+default_input_values = [ 0, 0.5, 1, 0.5, 2, 0.0 ]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id=15]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeVectorOp" id=16]
+operator = 11
+
+[sub_resource type="VisualShaderNodeTexture" id=18]
+texture = ExtResource( 1 )
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=4]
+output_port_for_preview = 0
+uniform_name = "Size"
+hint = 1
+max = 1.05
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=6]
+uniform_name = "screenwidth"
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=7]
+uniform_name = "screenheight"
+
+[sub_resource type="VisualShaderNodeScalarInterp" id=17]
+default_input_values = [ 0, 0.5, 1, 1.0, 2, 0.5 ]
+
+[resource]
+code = "shader_type canvas_item;
+uniform sampler2D tex_frg_20;
+uniform float Size : hint_range(0, 1.05);
+uniform float screenwidth;
+uniform float screenheight;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Texture:20
+	vec4 tex_frg_20_read = texture(tex_frg_20, UV.xy);
+	vec3 n_out20p0 = tex_frg_20_read.rgb;
+	float n_out20p1 = tex_frg_20_read.a;
+
+// ScalarUniform:5
+	float n_out5p0 = Size;
+
+// VectorCompose:17
+	float n_in17p0 = 0.50000;
+	float n_in17p1 = 0.50000;
+	float n_in17p2 = 0.00000;
+	vec3 n_out17p0 = vec3(n_in17p0, n_in17p1, n_in17p2);
+
+// Input:11
+	vec3 n_out11p0 = vec3(UV, 0.0);
+
+// VectorDecompose:10
+	float n_out10p0 = n_out11p0.x;
+	float n_out10p1 = n_out11p0.y;
+	float n_out10p2 = n_out11p0.z;
+
+// ScalarUniform:7
+	float n_out7p0 = screenwidth;
+
+// ScalarUniform:8
+	float n_out8p0 = screenheight;
+
+// ScalarOp:12
+	float n_out12p0 = n_out7p0 / n_out8p0;
+
+// ScalarMix:9
+	float n_in9p0 = 0.50000;
+	float n_out9p0 = mix(n_in9p0, n_out10p0, n_out12p0);
+
+// Input:16
+	vec3 n_out16p0 = vec3(UV, 0.0);
+
+// VectorDecompose:15
+	float n_out15p0 = n_out16p0.x;
+	float n_out15p1 = n_out16p0.y;
+	float n_out15p2 = n_out16p0.z;
+
+// VectorCompose:18
+	float n_in18p2 = 0.00000;
+	vec3 n_out18p0 = vec3(n_out9p0, n_out15p1, n_in18p2);
+
+// Distance:13
+	float n_out13p0 = distance(n_out17p0, n_out18p0);
+
+// VectorOp:19
+	vec3 n_out19p0 = step(vec3(n_out5p0), vec3(n_out13p0));
+
+// Output:0
+	COLOR.rgb = n_out20p0;
+	COLOR.a = dot(n_out19p0, vec3(0.333333, 0.333333, 0.333333));
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -650.598, -232.506 )
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 840, -240 )
+nodes/fragment/5/node = SubResource( 4 )
+nodes/fragment/5/position = Vector2( -140, -240 )
+nodes/fragment/7/node = SubResource( 6 )
+nodes/fragment/7/position = Vector2( -1320, -120 )
+nodes/fragment/8/node = SubResource( 7 )
+nodes/fragment/8/position = Vector2( -1300, 40 )
+nodes/fragment/9/node = SubResource( 17 )
+nodes/fragment/9/position = Vector2( -660, -100 )
+nodes/fragment/10/node = SubResource( 8 )
+nodes/fragment/10/position = Vector2( -900, -200 )
+nodes/fragment/11/node = SubResource( 9 )
+nodes/fragment/11/position = Vector2( -1120, -240 )
+nodes/fragment/12/node = SubResource( 10 )
+nodes/fragment/12/position = Vector2( -920, -40 )
+nodes/fragment/13/node = SubResource( 11 )
+nodes/fragment/13/position = Vector2( -100, 100 )
+nodes/fragment/15/node = SubResource( 12 )
+nodes/fragment/15/position = Vector2( -760, 120 )
+nodes/fragment/16/node = SubResource( 13 )
+nodes/fragment/16/position = Vector2( -960, 160 )
+nodes/fragment/17/node = SubResource( 14 )
+nodes/fragment/17/position = Vector2( -400, -60 )
+nodes/fragment/18/node = SubResource( 15 )
+nodes/fragment/18/position = Vector2( -400, 80 )
+nodes/fragment/19/node = SubResource( 16 )
+nodes/fragment/19/position = Vector2( 160, -60 )
+nodes/fragment/20/node = SubResource( 18 )
+nodes/fragment/20/position = Vector2( 313.947, -440.652 )
+nodes/fragment/connections = PoolIntArray( 11, 0, 10, 0, 10, 0, 9, 1, 7, 0, 12, 0, 8, 0, 12, 1, 12, 0, 9, 2, 16, 0, 15, 0, 17, 0, 13, 0, 9, 0, 18, 0, 18, 0, 13, 1, 19, 0, 0, 1, 5, 0, 19, 0, 13, 0, 19, 1, 15, 1, 18, 1, 20, 0, 0, 0 )
