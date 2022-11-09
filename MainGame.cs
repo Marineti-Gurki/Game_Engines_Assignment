@@ -20,10 +20,10 @@ public class MainGame : Spatial
                 float angle = j * theta;
                 float x = (radius) * Mathf.Cos(angle) * i;
                 float y = (radius) * Mathf.Sin(angle) * i;
-                MeshInstance LLMPInst = Lavalamp.Instance<MeshInstance>();
-                LLMPInst.Translation = new Vector3(x, y, 0);
-                LLMPInst.Rotation = new Vector3(0, 0, i);
-                AddChild(LLMPInst);
+                // MeshInstance LLMPInst = Lavalamp.Instance<MeshInstance>();
+                // LLMPInst.Translation = new Vector3(x, y, 0);
+                // LLMPInst.Rotation = new Vector3(0, 0, i);
+                // AddChild(LLMPInst);
             }
         }
     }

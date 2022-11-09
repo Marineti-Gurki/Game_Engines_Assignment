@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://RedGlass.tres" type="Shader" id=1]
 [ext_resource path="res://Glass.material" type="Material" id=2]
 [ext_resource path="res://metalic.tres" type="Material" id=3]
 [ext_resource path="res://LavaLamp.material" type="Material" id=4]
 [ext_resource path="res://Airship.cs" type="Script" id=5]
+[ext_resource path="res://WingAchor.cs" type="Script" id=6]
+[ext_resource path="res://WingAchor2.cs" type="Script" id=7]
 
 [sub_resource type="CapsuleMesh" id=1]
 material = ExtResource( 2 )
@@ -53,6 +55,7 @@ mesh = SubResource( 15 )
 mesh = SubResource( 13 )
 
 [node name="WingAchor" type="Spatial" parent="MeshInstance"]
+script = ExtResource( 6 )
 
 [node name="MeshInstance" type="MeshInstance" parent="MeshInstance/WingAchor"]
 transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 10, 0, 0 )
@@ -63,8 +66,12 @@ skeleton = NodePath("../..")
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64683e-07, 6.05524, 0 )
 mesh = SubResource( 3 )
 
+[node name="TweenAnc1" type="Tween" parent="MeshInstance/WingAchor"]
+unique_name_in_owner = true
+
 [node name="WingAchor2" type="Spatial" parent="MeshInstance"]
-transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( -1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0, 1, 0, 0, 0 )
+script = ExtResource( 7 )
 
 [node name="MeshInstance" type="MeshInstance" parent="MeshInstance/WingAchor2"]
 transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 10, 0, 0 )
@@ -75,5 +82,11 @@ skeleton = NodePath("../..")
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64683e-07, 6.05524, 0 )
 mesh = SubResource( 3 )
 
+[node name="TweenAnc2" type="Tween" parent="MeshInstance/WingAchor2"]
+unique_name_in_owner = true
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 17 )
+
+[connection signal="tween_all_completed" from="MeshInstance/WingAchor/TweenAnc1" to="MeshInstance/WingAchor" method="_on_Tween_tween_all_completed"]
+[connection signal="tween_all_completed" from="MeshInstance/WingAchor2/TweenAnc2" to="MeshInstance/WingAchor2" method="_on_TweenAnc2_tween_all_completed"]
