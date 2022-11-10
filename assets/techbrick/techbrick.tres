@@ -1,0 +1,20 @@
+[gd_resource type="SpatialMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://assets/techbrick/techbrick_depth.png" type="Texture" id=1]
+[ext_resource path="res://assets/techbrick/techbrick_albedo.png" type="Texture" id=2]
+
+[resource]
+albedo_color = Color( 0.454902, 0, 0.215686, 1 )
+albedo_texture = ExtResource( 2 )
+normal_enabled = true
+normal_scale = 1.09
+normal_texture = ExtResource( 1 )
+depth_enabled = true
+depth_scale = 0.006
+depth_deep_parallax = true
+depth_min_layers = 8
+depth_max_layers = 32
+depth_flip_tangent = false
+depth_flip_binormal = false
+depth_texture = ExtResource( 1 )
+uv1_scale = Vector3( 10, 10, 10 )
