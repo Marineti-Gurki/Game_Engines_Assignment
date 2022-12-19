@@ -1,6 +1,5 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=31 format=2]
 
-[ext_resource path="res://addons/godot-openvr/scenes/ovr_first_person.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Airship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/LavaLamp.tscn" type="PackedScene" id=4]
@@ -12,29 +11,36 @@
 [ext_resource path="res://scripts/Airship/FlyPath.cs" type="Script" id=10]
 [ext_resource path="res://assets/Transition.tres" type="Shader" id=11]
 [ext_resource path="res://assets/techbrick/techbrick.tres" type="Material" id=12]
+[ext_resource path="res://assets/skyboxblue-transformed.png" type="Texture" id=13]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=14]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=15]
+[ext_resource path="res://assets/MainGame_slot1_albedo_bump.packed_tex" type="Texture" id=16]
+[ext_resource path="res://assets/MainGame_slot0_albedo_bump.packed_tex" type="Texture" id=17]
+[ext_resource path="res://assets/MainGame_slot1_normal_roughness.packed_tex" type="Texture" id=18]
+[ext_resource path="res://assets/MainGame_slot0_normal_roughness.packed_tex" type="Texture" id=19]
+[ext_resource path="res://terraindata/data.hterrain" type="Resource" id=20]
+[ext_resource path="res://GalaxySpheres.tscn" type="PackedScene" id=21]
 
-[sub_resource type="ProceduralSky" id=36]
-sky_top_color = Color( 0.313726, 0.756863, 1, 1 )
-sky_horizon_color = Color( 0.635294, 0.870588, 1, 1 )
-ground_bottom_color = Color( 0.0627451, 0.172549, 0.545098, 1 )
-ground_horizon_color = Color( 0.176471, 0.690196, 1, 1 )
+[sub_resource type="PanoramaSky" id=39]
+radiance_size = 4
+panorama = ExtResource( 13 )
 
 [sub_resource type="Environment" id=26]
 background_mode = 2
-background_sky = SubResource( 36 )
+background_sky = SubResource( 39 )
+background_sky_custom_fov = 83.1
 tonemap_mode = 2
 glow_enabled = true
 adjustment_enabled = true
-adjustment_saturation = 1.32
 
 [sub_resource type="PhysicsMaterial" id=38]
 
-[sub_resource type="PlaneMesh" id=33]
+[sub_resource type="CubeMesh" id=41]
 material = ExtResource( 12 )
-size = Vector2( 50, 50 )
+size = Vector3( 20, 20, 20 )
 
-[sub_resource type="ConcavePolygonShape" id=37]
-data = PoolVector3Array( 25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, -25, 25, 0, -25 )
+[sub_resource type="BoxShape" id=42]
+extents = Vector3( 10, 10, 10 )
 
 [sub_resource type="ShaderMaterial" id=31]
 shader = ExtResource( 11 )
@@ -63,6 +69,35 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
 
+[sub_resource type="VisualShader" id=43]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx, async_visible;
+
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Output:0
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -1304.32, -162.237 )
+
+[sub_resource type="Resource" id=40]
+script = ExtResource( 14 )
+mode = 0
+textures = [ [ ExtResource( 17 ), ExtResource( 16 ) ], [ ExtResource( 19 ), ExtResource( 18 ) ] ]
+
 [node name="MainGame" type="Spatial"]
 script = ExtResource( 8 )
 
@@ -70,19 +105,19 @@ script = ExtResource( 8 )
 environment = SubResource( 26 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.5867, -3.38127, 48.4993 )
 physics_material_override = SubResource( 38 )
 
 [node name="Floor" type="MeshInstance" parent="StaticBody"]
-mesh = SubResource( 33 )
+mesh = SubResource( 41 )
 skeleton = NodePath("../..")
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 37 )
+shape = SubResource( 42 )
 
 [node name="TopDownCam" type="Camera" parent="."]
 unique_name_in_owner = true
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 45.3072, 3.26808 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -106.376, 256.091, 52.4961 )
 current = true
 far = 200.9
 script = ExtResource( 7 )
@@ -96,7 +131,7 @@ script = ExtResource( 9 )
 
 [node name="SideCam" type="Camera" parent="."]
 unique_name_in_owner = true
-transform = Transform( 1, 0, 0, 0, 0.999892, -0.0147126, 0, 0.0147126, 0.999892, 0, 1.27089, 11.9148 )
+transform = Transform( 1, 0, 0, 0, 0.999892, -0.0147126, 0, 0.0147126, 0.999892, -106.376, 119.41, 37.299 )
 current = true
 far = 200.9
 script = ExtResource( 7 )
@@ -109,16 +144,16 @@ color = Color( 0, 0, 0, 1 )
 script = ExtResource( 9 )
 
 [node name="Base" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -82.1874, 7.5867, 47.3026 )
 
 [node name="Base2" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.089, -1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -93.7543, 7.62894, 43.2759 )
 
 [node name="Base3" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.946, -1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.07628, 3.52249, 144.195 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.36356, 0.931571, 0, -0.931571, 0.36356, 0, 5.84412, 6.48223 )
+transform = Transform( 1, 0, 0, 0, 0.36356, 0.931571, 0, -0.931571, 0.36356, -106.376, 15.0645, 31.8664 )
 light_color = Color( 0.988235, 1, 0.866667, 1 )
 light_energy = 0.7
 shadow_enabled = true
@@ -130,23 +165,15 @@ anims/Transition = ExtResource( 5 )
 anims/TransitionOut = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4527, 4.59763 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.7111, 8.33409, 49.0608 )
 collision_layer = 1
 collision_mask = 1
 
-[node name="OVRFirstPerson" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.10993 )
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="OVRFirstPerson"]
-material = SubResource( 31 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
-script = ExtResource( 9 )
+[node name="PlayerCam" parent="Player" index="0"]
+current = true
 
 [node name="Path" type="Path" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 14.3468, 0 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -106.376, 23.5672, 25.3842 )
 curve = SubResource( 35 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
@@ -156,6 +183,28 @@ rotation_mode = 4
 script = ExtResource( 10 )
 
 [node name="Airship" parent="Path/PathFollow" instance=ExtResource( 3 )]
+
+[node name="HTerrain" type="Spatial" parent="."]
+script = ExtResource( 15 )
+lod_scale = 2.0
+centered = true
+_terrain_data = ExtResource( 20 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = SubResource( 43 )
+custom_globalmap_shader = null
+texture_set = SubResource( 40 )
+render_layers = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="Blackhole" parent="." instance=ExtResource( 21 )]
+transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, -108.685, 133.56, 50.9778 )
 
 [connection signal="animation_finished" from="TransitionManager" to="." method="_on_TransitionManager_animation_finished"]
 

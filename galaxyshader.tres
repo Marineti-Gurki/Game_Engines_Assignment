@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://flashinglightsshader.tres" type="Shader" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.00392157, 0, 0.0784314, 1 )
+
+[resource]
+next_pass = SubResource( 1 )
+shader = ExtResource( 1 )

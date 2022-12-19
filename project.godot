@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "ResourceFormatLoader",
+"class": "HTerrainDataLoader",
+"language": "GDScript",
+"path": "res://addons/zylann.hterrain/hterrain_resource_loader.gd"
+}, {
+"base": "ResourceFormatSaver",
+"class": "HTerrainDataSaver",
+"language": "GDScript",
+"path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"
+} ]
+_global_script_class_icons={
+"HTerrainDataLoader": "",
+"HTerrainDataSaver": ""
+}
+
 [application]
 
 config/name="Game_Engines_Assignment"
@@ -26,7 +42,7 @@ window/size/height=1080
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/godot-openvr/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/zylann.hterrain/plugin.cfg" )
 
 [gdnative]
 

@@ -19,6 +19,8 @@ script = ExtResource( 1 )
 
 [node name="PlayerCam" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.855025, 0.00698662 )
+fov = 90.0
+far = 300.0
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

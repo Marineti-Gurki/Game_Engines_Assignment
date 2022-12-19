@@ -29,10 +29,12 @@ public class Player : KinematicBody
 
     public void Movement(float delta)
     {
+
         Vector3 velocity = Vector3.Zero;
         Vector3 direction = Vector3.Zero;
         Vector3 direction2 = Vector3.Zero;
         bool Sprinting = false;
+        bool Jumping = false;
 
         if (Input.IsActionPressed("modifier_shift"))
         {
@@ -69,11 +71,21 @@ public class Player : KinematicBody
 
 
         MoveAndSlide(jump, Vector3.Up);
-        if (Input.IsActionPressed("jump") && IsOnFloor())
+        if (IsOnFloor() && !Jumping)
+        {
+            Jumping = false;
+            jump.y = 0;
+        }
+        if (Input.IsActionPressed("jump"))
+        {
+            Jumping = true;
+        }
+        if (Jumping && IsOnFloor())
         {
             jump.y = JumpForce;
         }
         jump.y -= Gravity * delta;
+
 
         direction = direction + direction2;
         direction = direction.Normalized();

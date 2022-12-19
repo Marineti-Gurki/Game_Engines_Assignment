@@ -1,0 +1,8 @@
+{
+	"contains_albedo": true,
+	"resolution": 512,
+	"src": {
+		"a": "res://assets/carpetredbump.png",
+		"rgb": "res://assets/carpetred.png"
+	}
+}
