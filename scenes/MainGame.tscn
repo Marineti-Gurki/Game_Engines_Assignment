@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://SpaceSnake.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://assets/MainGame_slot0_normal_roughness.packed_tex" type="Texture" id=19]
 [ext_resource path="res://terraindata/data.hterrain" type="Resource" id=20]
 [ext_resource path="res://GalaxySpheres.tscn" type="PackedScene" id=21]
+[ext_resource path="res://GEAudio.mp3" type="AudioStream" id=22]
 
 [sub_resource type="PanoramaSky" id=39]
 radiance_size = 4
@@ -30,6 +31,13 @@ panorama = ExtResource( 13 )
 background_mode = 2
 background_sky = SubResource( 39 )
 background_sky_custom_fov = 83.1
+background_energy = 0.05
+ambient_light_energy = 0.4
+fog_enabled = true
+fog_color = Color( 0, 0.0313726, 0.0627451, 1 )
+fog_sun_color = Color( 0, 0, 0, 1 )
+fog_depth_begin = 5.0
+fog_depth_curve = 1.31951
 tonemap_mode = 2
 glow_enabled = true
 adjustment_enabled = true
@@ -156,7 +164,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.07628, 3.52249, 144.195 )
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.36356, 0.931571, 0, -0.931571, 0.36356, -106.376, 15.0645, 31.8664 )
 light_color = Color( 0.988235, 1, 0.866667, 1 )
-light_energy = 0.7
+light_energy = 0.083
 shadow_enabled = true
 
 [node name="TransitionManager" type="AnimationPlayer" parent="."]
@@ -206,9 +214,14 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="Blackhole" parent="." instance=ExtResource( 21 )]
 transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, -108.685, 133.56, 50.9778 )
+visible = false
 
 [node name="SpaceSnake" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.3894, 12.3283, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+autoplay = true
 
 [connection signal="animation_finished" from="TransitionManager" to="." method="_on_TransitionManager_animation_finished"]
 

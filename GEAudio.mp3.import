@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GEAudio.mp3-5154e74863650fc65cbdb68a26ea70f9.mp3str"
+
+[deps]
+
+source_file="res://GEAudio.mp3"
+dest_files=[ "res://.import/GEAudio.mp3-5154e74863650fc65cbdb68a26ea70f9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

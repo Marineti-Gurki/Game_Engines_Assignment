@@ -34,7 +34,7 @@ public class SpaceSnake : Spatial
 
                 // for (int j = 0; j < GetChildCount(); j++)
                 // {
-                //     var snakePart2 = (Spatial)GetChild(j);
+                //     var snakePart2 = snakePart.GetChild<Spatial>(j);
                 //     CurrentRotationInner = snakePart2.RotationDegrees;
 
                 //     CurrentRotationInner.z = Angle * i;
