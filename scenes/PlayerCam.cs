@@ -32,10 +32,13 @@ public class PlayerCam : Camera
                 player.RotationDegrees = currentPitch;
 
                 Vector3 currentTilt = RotationDegrees;//grab current rotation of camera.
-                currentTilt.x -= mouseMotion.Relative.y * MouseSensitivity;                                 //change the current rotation by the relative mouse coor change on the y Axis
-                currentTilt.x = Mathf.Clamp(currentTilt.x, -90, 90);                                        //clamp the rotation to -90 and 90 so that you cant become possessed.
-                                                                                                            // GetNode<Camera>("Camera").SetRotationDegrees(currentTilt); 		//sets the rotation of the camera to the new value
-                RotationDegrees = currentTilt;        //sets the rotation of the camera to the new value
+
+                //change the current rotation by the relative mouse coor change on the y Axis
+                currentTilt.x -= mouseMotion.Relative.y * MouseSensitivity;
+                //clamp the rotation to -90 and 90 so that you cant become possessed.		
+                currentTilt.x = Mathf.Clamp(currentTilt.x, -90, 90);
+                //sets the rotation of the camera to the new value
+                RotationDegrees = currentTilt;
 
             }
         }

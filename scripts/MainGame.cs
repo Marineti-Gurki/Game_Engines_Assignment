@@ -7,7 +7,7 @@ public class MainGame : Spatial
     PackedScene Lavalamp;
 
     int MinFreq = 20;
-    int MaxFreq = 20000;
+    int MaxFreq = 5000;
     int definition = 20;
     private AudioEffectSpectrumAnalyzerInstance fft;
 
@@ -26,18 +26,18 @@ public class MainGame : Spatial
         var fft = (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(0, 0);
         var freq = MinFreq;
         var interval = (MaxFreq - MinFreq) / definition;
-        var mag = fft.GetMagnitudeForFrequencyRange(freq, freq + interval);
-        GD.Print(mag);
-        if (mag.x >= 0.35)
+        var mag = fft.GetMagnitudeForFrequencyRange(freq, freq + interval).Length();
+        var energy = Mathf.Clamp((MinFreq + GD.Linear2Db(mag)) / MinFreq, 0, 1);
+        GD.Print(energy);
+        if (energy > 0)
         {
-
-            WE.Environment.BackgroundEnergy = mag.x;
+            WE.Environment.BackgroundEnergy += 0.15f;
         }
         else
         {
-            GD.Print(mag);
             WE.Environment.BackgroundEnergy = 0.05f;
         }
+        freq += interval;
 
         if (Input.IsMouseButtonPressed(1))
         {

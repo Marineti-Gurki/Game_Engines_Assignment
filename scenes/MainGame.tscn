@@ -21,7 +21,7 @@
 [ext_resource path="res://assets/MainGame_slot0_normal_roughness.packed_tex" type="Texture" id=19]
 [ext_resource path="res://terraindata/data.hterrain" type="Resource" id=20]
 [ext_resource path="res://GalaxySpheres.tscn" type="PackedScene" id=21]
-[ext_resource path="res://GEAudio.mp3" type="AudioStream" id=22]
+[ext_resource path="res://badump.mp3" type="AudioStream" id=22]
 
 [sub_resource type="PanoramaSky" id=39]
 radiance_size = 4
