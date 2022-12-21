@@ -19,6 +19,7 @@ public class FloatingLavalamp : MeshInstance
         if (Input.IsActionJustPressed("ActionConfirm") && WithinArea)
         {
             Hide();
+            GetTree().ChangeScene("res://scenes/PreGame.tscn"); //Buggy, creates a bunch of debugger errors.
         }
     }
 
