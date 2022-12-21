@@ -98,8 +98,11 @@ script = ExtResource( 8 )
 environment = SubResource( 26 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.5867, -3.38127, 48.4993 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.5867, -6.14755, 48.4993 )
 physics_material_override = SubResource( 38 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Floor" type="MeshInstance" parent="StaticBody"]
 mesh = SubResource( 41 )
@@ -116,20 +119,6 @@ far = 200.9
 script = ExtResource( 7 )
 
 [node name="ColorRect" type="ColorRect" parent="TopDownCam"]
-material = SubResource( 31 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
-script = ExtResource( 9 )
-
-[node name="SideCam" type="Camera" parent="."]
-unique_name_in_owner = true
-transform = Transform( 1, 0, 0, 0, 0.999892, -0.0147126, 0, 0.0147126, 0.999892, -106.376, 119.41, 37.299 )
-current = true
-far = 200.9
-script = ExtResource( 7 )
-
-[node name="ColorRect" type="ColorRect" parent="SideCam"]
 material = SubResource( 31 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -190,7 +179,6 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="Blackhole" parent="." instance=ExtResource( 21 )]
 transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, -108.685, 94.3507, 50.9778 )
-visible = false
 
 [node name="SpaceSnake" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.3894, 12.3283, 0 )
