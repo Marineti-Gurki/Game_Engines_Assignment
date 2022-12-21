@@ -1,0 +1,9 @@
+E:\UniY4\GameEngines\Game_Engines_Assignment\.mono\temp\bin\ExportDebug\Game_Engines_Assignment.dll
+E:\UniY4\GameEngines\Game_Engines_Assignment\.mono\temp\bin\ExportDebug\Game_Engines_Assignment.pdb
+E:\UniY4\GameEngines\Game_Engines_Assignment\.mono\temp\obj\ExportDebug\Game_Engines_Assignment.csproj.AssemblyReference.cache
+E:\UniY4\GameEngines\Game_Engines_Assignment\.mono\temp\obj\ExportDebug\Game_Engines_Assignment.GeneratedMSBuildEditorConfig.editorconfig
+E:\UniY4\GameEngines\Game_Engines_Assignment\.mono\temp\obj\ExportDebug\Game_Engines_Assignment.AssemblyInfoInputs.cache
+E:\UniY4\GameEngines\Game_Engines_Assignment\.mono\temp\obj\ExportDebug\Game_Engines_Assignment.AssemblyInfo.cs
+E:\UniY4\GameEngines\Game_Engines_Assignment\.mono\temp\obj\ExportDebug\Game_Engines_Assignment.csproj.CoreCompileInputs.cache
+E:\UniY4\GameEngines\Game_Engines_Assignment\.mono\temp\obj\ExportDebug\Game_Engines_Assignment.dll
+E:\UniY4\GameEngines\Game_Engines_Assignment\.mono\temp\obj\ExportDebug\Game_Engines_Assignment.pdb

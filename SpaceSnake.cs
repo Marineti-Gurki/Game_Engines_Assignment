@@ -3,17 +3,19 @@ using System;
 
 public class SpaceSnake : Spatial
 {
+    Player player;
+    float SnakeSpeed = 0.2f;
     Vector3 CurrentRotationInner;
     Vector3 CurrentRotationOuter;
     float Frequency = 1.1f;
-    float TimeScale = 0.5f;
+    float TimeScale = 0.1f;
     float Theta;
 
     float Amplitude = 20f;
 
     public override void _Ready()
     {
-
+        player = (Player)GetNode("%Player");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,21 +30,15 @@ public class SpaceSnake : Spatial
             if (snakePart.Name != "Body")
             {
                 CurrentRotationOuter = snakePart.RotationDegrees;
-                CurrentRotationOuter.z = Angle * i;
-                CurrentRotationOuter.z = Mathf.Lerp(RotationDegrees.z, CurrentRotationOuter.z, TimeScale);
+                CurrentRotationOuter.x = Angle * i;
+                CurrentRotationOuter.x = Mathf.Lerp(RotationDegrees.x, CurrentRotationOuter.x, TimeScale);
                 snakePart.RotationDegrees = CurrentRotationOuter;
-
-                // for (int j = 0; j < GetChildCount(); j++)
-                // {
-                //     var snakePart2 = snakePart.GetChild<Spatial>(j);
-                //     CurrentRotationInner = snakePart2.RotationDegrees;
-
-                //     CurrentRotationInner.z = Angle * i;
-                //     CurrentRotationInner.z = Mathf.Lerp(RotationDegrees.z, CurrentRotationInner.z, TimeScale * 0.1f);
-                //     snakePart.RotationDegrees = CurrentRotationInner;
-                // }
+                RotationDegrees = new Vector3(Angle * 0.2f, 0, 0);
             }
         }
+        LookAt(player.Translation, Vector3.Up);
+        Translation += (player.Translation - Translation) * (delta * SnakeSpeed);
+
     }
 
 }

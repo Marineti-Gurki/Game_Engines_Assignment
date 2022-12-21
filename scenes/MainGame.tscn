@@ -1,11 +1,10 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://SpaceSnake.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Airship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/LavaLamp.tscn" type="PackedScene" id=4]
-[ext_resource path="res://TransitionAnimation.tres" type="Animation" id=5]
-[ext_resource path="res://TransitionOut.tres" type="Animation" id=6]
+[ext_resource path="res://TransitionManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/MainCamera.cs" type="Script" id=7]
 [ext_resource path="res://scripts/MainGame.cs" type="Script" id=8]
 [ext_resource path="res://scripts/ScreenSwitch.cs" type="Script" id=9]
@@ -56,21 +55,6 @@ shader = ExtResource( 11 )
 shader_param/Size = 0.0
 shader_param/screenwidth = 1920.0
 shader_param/screenheight = 1080.0
-
-[sub_resource type="Animation" id=32]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("TopDownCam/ColorRect:material:shader_param/Size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
 
 [sub_resource type="Curve3D" id=35]
 _data = {
@@ -167,13 +151,10 @@ light_color = Color( 0.988235, 1, 0.866667, 1 )
 light_energy = 0.083
 shadow_enabled = true
 
-[node name="TransitionManager" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-anims/RESET = SubResource( 32 )
-anims/Transition = ExtResource( 5 )
-anims/TransitionOut = ExtResource( 6 )
+[node name="TransitionManager" parent="." instance=ExtResource( 5 )]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+unique_name_in_owner = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.7111, 8.33409, 49.0608 )
 collision_layer = 1
 collision_mask = 1
@@ -182,7 +163,7 @@ collision_mask = 1
 current = true
 
 [node name="Path" type="Path" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -106.376, 23.5672, 25.3842 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -67.7103, 9.61873, 62.9085 )
 curve = SubResource( 35 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
@@ -213,8 +194,7 @@ shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="Blackhole" parent="." instance=ExtResource( 21 )]
-transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, -108.685, 133.56, 50.9778 )
-visible = false
+transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, -108.685, 94.3507, 50.9778 )
 
 [node name="SpaceSnake" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.3894, 12.3283, 0 )
@@ -222,7 +202,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.3894, 12.3283, 0 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 22 )
 autoplay = true
-
-[connection signal="animation_finished" from="TransitionManager" to="." method="_on_TransitionManager_animation_finished"]
 
 [editable path="Player"]
