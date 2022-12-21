@@ -15,6 +15,15 @@ public class MainGame : Spatial
 
     public override void _Ready()
     {
+        var vr = ARVRServer.FindInterface("OpenVR");
+        if (vr != null && vr.Initialize())
+        {
+            GetViewport().Arvr = true;
+
+            OS.VsyncEnabled = false;
+            Engine.TargetFps = 90;
+            
+        }
         Lavalamp = (PackedScene)ResourceLoader.Load("res://scenes/LavaLamp.tscn");
         WE = GetNode<WorldEnvironment>("WorldEnvironment");
 
@@ -39,11 +48,6 @@ public class MainGame : Spatial
         }
         freq += interval;
 
-        if (Input.IsMouseButtonPressed(1))
-        {
-            // transitionPlayer = GetNode<AnimationPlayer>("%TransitionManager");
-            // transitionPlayer.CurrentAnimation = "TransitionOut";
-        }
         if (Input.IsActionJustReleased("side_cam"))
         {
             var cam = GetNode<Camera>("%SideCam");

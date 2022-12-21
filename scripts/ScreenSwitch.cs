@@ -11,15 +11,9 @@ public class ScreenSwitch : ColorRect
         FadeInTransition();
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(float delta)
-    {
-
-    }
-
-
     public async void FadeInTransition()
     {
+        // if fade isn't happening and a fade in transition is requested, fade in animation starts after small delay
         if (!fadeInHappened)
         {
             fadeInHappened = true;
@@ -30,6 +24,7 @@ public class ScreenSwitch : ColorRect
     }
     public async void FadeOutTransition()
     {
+        // if fade isn't happening and a fade out transition is requested, fade out animation starts after small delay
         if (!fadeOutHappened)
         {
             fadeInHappened = true;

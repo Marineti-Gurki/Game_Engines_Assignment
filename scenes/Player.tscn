@@ -42,5 +42,3 @@ material/0 = SubResource( 3 )
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.160222, 0 )
 shape = SubResource( 5 )
-
-[connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]

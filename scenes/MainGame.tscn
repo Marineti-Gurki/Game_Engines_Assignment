@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/SpaceSnake.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Airship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/LavaLamp.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/TransitionManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://VRPlayer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/MainCamera.cs" type="Script" id=7]
 [ext_resource path="res://scripts/MainGame.cs" type="Script" id=8]
 [ext_resource path="res://scripts/ScreenSwitch.cs" type="Script" id=9]
@@ -187,9 +188,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.3894, 12.3283, 0 )
 stream = ExtResource( 22 )
 autoplay = true
 
-[node name="ARVROrigin" type="ARVROrigin" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88.0295, 9.50597, 44.4726 )
-
-[node name="ARVRCamera" type="ARVRCamera" parent="ARVROrigin"]
+[node name="VRPlayer" parent="." instance=ExtResource( 6 )]
+unique_name_in_owner = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -82.0774, 6.23553, 43.6558 )
 
 [editable path="Player"]

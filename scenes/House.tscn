@@ -143,7 +143,7 @@ render_priority = 1
 shader = ExtResource( 1 )
 
 [sub_resource type="BoxShape" id=27]
-extents = Vector3( 3.03414, 2.73738, 2.90283 )
+extents = Vector3( 3.03414, 2.73738, 3.85738 )
 
 [sub_resource type="DynamicFont" id=28]
 size = 20
