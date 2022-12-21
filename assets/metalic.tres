@@ -2,7 +2,6 @@
 
 [ext_resource path="res://assets/perlinnose.png" type="Texture" id=1]
 
-
 [resource]
 albedo_color = Color( 0.345098, 0.345098, 0.345098, 1 )
 metallic = 0.53
@@ -16,3 +15,4 @@ depth_max_layers = 32
 depth_flip_tangent = false
 depth_flip_binormal = false
 depth_texture = ExtResource( 1 )
+uv1_scale = Vector3( 9.026, 4.89, 2.13 )

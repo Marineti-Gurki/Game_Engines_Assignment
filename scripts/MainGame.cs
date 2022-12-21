@@ -74,7 +74,7 @@ public class MainGame : Spatial
     {
         if (anim == "TransitionOut")
         {
-            GetTree().ChangeScene("res://scenes/TestScene.tscn"); //Buggy, creates a bunch of debugger errors.
+            GetTree().ChangeScene("res://scenes/TestScene.tscn");
         }
     }
 }
