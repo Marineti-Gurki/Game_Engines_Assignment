@@ -28,7 +28,7 @@ public class MainGame : Spatial
         var interval = (MaxFreq - MinFreq) / definition;
         var mag = fft.GetMagnitudeForFrequencyRange(freq, freq + interval).Length();
         var energy = Mathf.Clamp((MinFreq + GD.Linear2Db(mag)) / MinFreq, 0, 1);
-        GD.Print(energy);
+
         if (energy > 0)
         {
             WE.Environment.BackgroundEnergy += 0.15f;
