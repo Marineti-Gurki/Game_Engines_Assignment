@@ -46,7 +46,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/zylann.hterrain/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/godot-openvr/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg" )
 
 [gdnative]
 

@@ -157,7 +157,7 @@ collision_mask = 1
 current = true
 
 [node name="Path" type="Path" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -67.7103, 9.61873, 62.9085 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -76.6055, 18.6717, 43.2824 )
 curve = SubResource( 35 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
@@ -167,6 +167,7 @@ rotation_mode = 4
 script = ExtResource( 10 )
 
 [node name="Airship" parent="Path/PathFollow" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
 
 [node name="HTerrain" type="Spatial" parent="."]
 script = ExtResource( 15 )
@@ -197,5 +198,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.3894, 12.3283, 0 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 22 )
 autoplay = true
+
+[node name="ARVROrigin" type="ARVROrigin" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88.0295, 9.50597, 44.4726 )
+
+[node name="ARVRCamera" type="ARVRCamera" parent="ARVROrigin"]
 
 [editable path="Player"]

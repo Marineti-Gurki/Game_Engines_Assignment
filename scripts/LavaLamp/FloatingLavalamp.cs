@@ -19,7 +19,6 @@ public class FloatingLavalamp : MeshInstance
         if (Input.IsActionJustPressed("ActionConfirm") && WithinArea)
         {
             Hide();
-            GD.Print("Test");
         }
     }
 

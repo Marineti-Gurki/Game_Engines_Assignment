@@ -123,4 +123,9 @@ light_indirect_energy = 3.644
 light_specular = 1.426
 omni_range = 19.2646
 
+[node name="ARVROrigin" type="ARVROrigin" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4636, 14.0277, 0 )
+
+[node name="ARVRCamera" type="ARVRCamera" parent="ARVROrigin"]
+
 [editable path="Player"]

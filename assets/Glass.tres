@@ -4,7 +4,7 @@
 
 [sub_resource type="VisualShaderNodeScalarConstant" id=4]
 output_port_for_preview = 0
-constant = 0.3
+constant = 0.2
 
 [sub_resource type="VisualShaderNodeVec3Constant" id=9]
 output_port_for_preview = 0
@@ -31,7 +31,7 @@ void fragment() {
 	vec3 n_out5p0 = vec3(1.000000, 3.000000, 3.000000);
 
 // Scalar:3
-	float n_out3p0 = 0.300000;
+	float n_out3p0 = 0.200000;
 
 // Texture:6
 	vec4 tex_frg_6_read = texture(tex_frg_6, UV.xy);
@@ -50,7 +50,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -179.444, 16.6944 )
+graph_offset = Vector2( -5.27991, 0.880005 )
 nodes/fragment/0/position = Vector2( 1320, 100 )
 nodes/fragment/3/node = SubResource( 4 )
 nodes/fragment/3/position = Vector2( 680, 40 )
