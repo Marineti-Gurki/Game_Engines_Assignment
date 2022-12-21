@@ -11,3 +11,10 @@ HTMLFiles/index.png
 HTMLFiles/index.png.import
 HTMLFiles/index.wasm
 HTMLFiles/index.zip
+HTMLFiles/actions/actions.json
+HTMLFiles/actions/bindings_gamepad.json
+HTMLFiles/actions/bindings_generic.json
+HTMLFiles/actions/bindings_holographic_controller.json
+HTMLFiles/actions/bindings_index_controller.json
+HTMLFiles/actions/bindings_oculus_touch.json
+HTMLFiles/actions/bindings_vive_controller.json
