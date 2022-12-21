@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://GalaxySpheres.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/GalaxySpheres.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SpaceSnake.cs" type="Script" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 2.0
+height = 8.0
 
 [node name="SpaceSnake" type="Spatial"]
 script = ExtResource( 2 )
@@ -31,3 +35,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2 )
 
 [node name="Head2" parent="Spatial2/Spatial" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

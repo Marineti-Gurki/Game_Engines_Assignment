@@ -91,4 +91,5 @@ public class Player : KinematicBody
         velocity.LinearInterpolate(velocity, Acceleration * delta);
         MoveAndSlide(velocity, Vector3.Up);
     }
+
 }

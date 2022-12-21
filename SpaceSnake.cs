@@ -41,4 +41,12 @@ public class SpaceSnake : Spatial
 
     }
 
+    private void _on_Area_body_entered(object body)
+    {
+        if (body is Player player)
+        {
+            GetTree().Quit();
+        }
+    }
+
 }

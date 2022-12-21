@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Player.cs" type="Script" id=1]
 [ext_resource path="res://scenes/PlayerCam.cs" type="Script" id=2]
@@ -11,6 +11,10 @@ radius = 0.75
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.333333, 0.0705882, 0.309804, 1 )
+
+[sub_resource type="CapsuleShape" id=5]
+radius = 1.2
+height = 0.85746
 
 [node name="Player" type="KinematicBody"]
 collision_layer = 3
@@ -32,3 +36,11 @@ transform = Transform( 0.999985, 0.00313422, 0.00444442, 0.00445002, -0.00178064
 mesh = SubResource( 1 )
 skeleton = NodePath("../CollisionShape")
 material/0 = SubResource( 3 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.160222, 0 )
+shape = SubResource( 5 )
+
+[connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]

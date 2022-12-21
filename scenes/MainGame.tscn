@@ -1,10 +1,10 @@
 [gd_scene load_steps=31 format=2]
 
-[ext_resource path="res://SpaceSnake.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/SpaceSnake.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Airship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/LavaLamp.tscn" type="PackedScene" id=4]
-[ext_resource path="res://TransitionManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/TransitionManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/MainCamera.cs" type="Script" id=7]
 [ext_resource path="res://scripts/MainGame.cs" type="Script" id=8]
 [ext_resource path="res://scripts/ScreenSwitch.cs" type="Script" id=9]
@@ -19,7 +19,7 @@
 [ext_resource path="res://assets/MainGame_slot1_normal_roughness.packed_tex" type="Texture" id=18]
 [ext_resource path="res://assets/MainGame_slot0_normal_roughness.packed_tex" type="Texture" id=19]
 [ext_resource path="res://terraindata/data.hterrain" type="Resource" id=20]
-[ext_resource path="res://GalaxySpheres.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/GalaxySpheres.tscn" type="PackedScene" id=21]
 [ext_resource path="res://badump.mp3" type="AudioStream" id=22]
 
 [sub_resource type="PanoramaSky" id=39]
