@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://assets/Glass.tres" type="Shader" id=1]
 [ext_resource path="res://scripts/House.cs" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://assets/HouseAssets/TexturesCom_Pavement_SlateTerracotta_1K_albedo.png" type="Texture" id=18]
 [ext_resource path="res://assets/HouseAssets/Box-Normal.png" type="Texture" id=19]
 [ext_resource path="res://AnalogueOS-Regular.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://assets/Infected Mushroom - Guitarmass.mp3" type="AudioStream" id=21]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 15, 1, 15 )
@@ -296,6 +297,11 @@ text = "Press F to Start the Challenge
 "
 font = SubResource( 28 )
 script = ExtResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="Glass/Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_entered" from="Glass/Area" to="Glass/Area/Label3D" method="_on_Area_body_entered"]

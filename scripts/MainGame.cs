@@ -7,7 +7,7 @@ public class MainGame : Spatial
     PackedScene Lavalamp;
 
     int MinFreq = 20;
-    int MaxFreq = 5000;
+    int MaxFreq = 20000;
     int definition = 20;
     private AudioEffectSpectrumAnalyzerInstance fft;
 

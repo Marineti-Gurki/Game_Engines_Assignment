@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Infected Mushroom - Guitarmass.mp3-0dae03bcdf790325e9b11f5b547582fb.mp3str"
+
+[deps]
+
+source_file="res://assets/Infected Mushroom - Guitarmass.mp3"
+dest_files=[ "res://.import/Infected Mushroom - Guitarmass.mp3-0dae03bcdf790325e9b11f5b547582fb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
