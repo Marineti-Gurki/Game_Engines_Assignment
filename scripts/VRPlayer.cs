@@ -72,11 +72,11 @@ public class VRPlayer : KinematicBody
         {
             direction2 += Transform.basis.x;
         }
-        if (Input.IsActionJustPressed("rotate_left") && RightController.GetHand().Equals(ARVRPositionalTracker.TrackerHand.RightHand))
+        if (Input.IsActionJustPressed("rotate_left") && RightController.GetHand() == ARVRPositionalTracker.TrackerHand.LeftHand)
         {
             RotateY(-VRRotateAmount);
         }
-        if (Input.IsActionJustPressed("rotate_right") && RightController.GetHand().Equals(ARVRPositionalTracker.TrackerHand.RightHand))
+        if (Input.IsActionJustPressed("rotate_right") && RightController.GetHand() == ARVRPositionalTracker.TrackerHand.LeftHand)
         {
             RotateY(VRRotateAmount);
         }

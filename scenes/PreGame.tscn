@@ -133,5 +133,9 @@ omni_range = 19.2646
 [node name="VRPlayer" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67905, 13.925, 1.43442 )
 
+[node name="Right" parent="VRPlayer/ARVROrigin" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.10223, 0 )
+
 [editable path="Player"]
 [editable path="Spatial"]
+[editable path="VRPlayer"]
