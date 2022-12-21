@@ -10,7 +10,7 @@ public class MainCamera : Camera
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        TrackedObject = GetTree().Root.GetNode<MeshInstance>("MainGame/Base/Glass");
+        // TrackedObject = GetTree().Root.GetNode<MeshInstance>("MainGame/Base/Glass");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

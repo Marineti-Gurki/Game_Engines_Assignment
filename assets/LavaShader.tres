@@ -164,7 +164,6 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -124.841, 42.9722 )
 nodes/fragment/0/position = Vector2( 1320, 120 )
 nodes/fragment/2/node = SubResource( 10 )
 nodes/fragment/2/position = Vector2( 240, 20 )

@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/LavaShader.tres" type="Shader" id=1]
+[ext_resource path="res://scripts/LavaLamp/FloatingLavalamp.cs" type="Script" id=2]
+[ext_resource path="res://assets/Glass.material" type="Material" id=3]
+
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.8
+radial_segments = 32
+rings = 32
+
+[sub_resource type="SphereMesh" id=8]
+radius = 0.5
+height = 1.5
+
+[sub_resource type="ShaderMaterial" id=32]
+shader = ExtResource( 1 )
+
+[sub_resource type="Gradient" id=30]
+offsets = PoolRealArray( 0, 0.541936, 1 )
+colors = PoolColorArray( 0.567742, 0.567742, 0.567742, 0.432258, 1, 0, 0, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=31]
+gradient = SubResource( 30 )
+
+[sub_resource type="ParticlesMaterial" id=27]
+emission_shape = 1
+emission_sphere_radius = 0.3
+gravity = Vector3( 0, -2, 0 )
+initial_velocity = 0.2
+initial_velocity_random = 1.0
+color = Color( 0.854902, 0, 0, 1 )
+color_ramp = SubResource( 31 )
+
+[sub_resource type="ShaderMaterial" id=28]
+shader = ExtResource( 1 )
+
+[sub_resource type="SphereMesh" id=29]
+material = SubResource( 28 )
+radius = 0.25
+height = 0.5
+
+[node name="Glass" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.47076, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00659132, -0.00929189, -4.76837e-07 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 32 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00659132, -0.00929187, 0.50659 )
+amount = 16
+visibility_aabb = AABB( -0.565484, -0.977631, -0.570606, 1.13097, 1.95526, 1.14121 )
+process_material = SubResource( 27 )
+draw_pass_1 = SubResource( 29 )
