@@ -9,14 +9,15 @@ public class VRPlayer : KinematicBody
     int MoveSpeed = 7;
     float JumpForce = 5;
     float Acceleration = 1.15f;
-    float VRRotateAmount = 0.5f;
     public float Gravity = 9.8f;
     ARVRController RightController;
     ARVRController LeftController;
+    float VRRotateAmount = 0.5f;
     public override void _Ready()
     {
         //Locks mouse within the screen
         Input.MouseMode = Input.MouseModeEnum.Captured;
+
         LeftController = GetNode<ARVRController>("ARVROrigin/Left");
         RightController = GetNode<ARVRController>("ARVROrigin/Right");
     }
@@ -29,7 +30,6 @@ public class VRPlayer : KinematicBody
 
     public void Movement(float delta)
     {
-        // GD.Print(Input.GetJoyAxis(0, 1));
         //Movement code for the player.
         Vector3 velocity = Vector3.Zero;
         Vector3 direction = Vector3.Zero;
@@ -71,14 +71,6 @@ public class VRPlayer : KinematicBody
         else if (Input.IsActionPressed("move_right"))
         {
             direction2 += Transform.basis.x;
-        }
-        if (Input.IsActionJustPressed("rotate_left") && RightController.GetHand() == ARVRPositionalTracker.TrackerHand.LeftHand)
-        {
-            RotateY(-VRRotateAmount);
-        }
-        if (Input.IsActionJustPressed("rotate_right") && RightController.GetHand() == ARVRPositionalTracker.TrackerHand.LeftHand)
-        {
-            RotateY(VRRotateAmount);
         }
 
 

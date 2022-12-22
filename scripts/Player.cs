@@ -10,10 +10,15 @@ public class Player : KinematicBody
     float JumpForce = 5;
     float Acceleration = 1.15f;
     bool isVR = false;
+    ARVRController RightController;
+    ARVRController LeftController;
+    float VRRotateAmount = 0.5f;
 
     public float Gravity = 9.8f;
+    ARVRCamera VRCam;
     public override void _Ready()
     {
+        VRCam = GetNode<ARVRCamera>("ARVROrigin/ARVRCamera");
         var vr = ARVRServer.FindInterface("OpenVR");
         if (vr != null && vr.Initialize())
         {
@@ -26,14 +31,15 @@ public class Player : KinematicBody
         // reference to the player node
         if (isVR)
         {
-            Hide();
+            VRCam.Current = true;
         }
         else
         {
-            Show();
+            GetNode<Camera>("PlayerCam").Current = true;
         }
-        //Locks mouse within the screen
         Input.MouseMode = Input.MouseModeEnum.Captured;
+        RotationDegrees = VRCam.RotationDegrees;
+
     }
 
     public override void _PhysicsProcess(float delta)
@@ -87,7 +93,6 @@ public class Player : KinematicBody
             direction2 += Transform.basis.x;
         }
 
-
         MoveAndSlide(jump, Vector3.Up);
         //Ensures you can only jump once
         if (IsOnFloor() && !Jumping)
@@ -116,4 +121,20 @@ public class Player : KinematicBody
         MoveAndSlide(velocity, Vector3.Up);
     }
 
+    private void _on_Right_button_pressed(int button)
+    {
+        if (button == 15)
+        {
+            RotateY(-VRRotateAmount);
+            VRCam.RotationDegrees = RotationDegrees;
+        }
+    }
+    private void _on_Left_button_pressed(int button)
+    {
+        if (button == 15)
+        {
+            RotateY(VRRotateAmount);
+            VRCam.RotationDegrees = RotationDegrees;
+        }
+    }
 }

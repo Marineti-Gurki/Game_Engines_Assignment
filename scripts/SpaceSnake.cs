@@ -27,14 +27,7 @@ public class SpaceSnake : Spatial
             isVR = true;
         }
         // reference to the player node
-        if (isVR)
-        {
-            vrplayer = (VRPlayer)GetNode("%VRPlayer");
-        }
-        else
-        {
-            player = (Player)GetNode("%Player");
-        }
+        player = (Player)GetNode("%Player");
     }
 
     public override void _PhysicsProcess(float delta)
@@ -56,27 +49,18 @@ public class SpaceSnake : Spatial
             }
         }
 
-        if (isVR)
-        {
-            // Rotates the snake to look at the player.
-            LookAt(vrplayer.Translation, Vector3.Up);
-            //Moves the snake towards the player
-            Translation += (vrplayer.Translation - Translation) * (delta * SnakeSpeed);
-        }
-        else
-        {
-            // Rotates the snake to look at the player.
-            LookAt(player.Translation, Vector3.Up);
-            //Moves the snake towards the player
-            Translation += (player.Translation - Translation) * (delta * SnakeSpeed);
-        }
+        // Rotates the snake to look at the player.
+        LookAt(player.Translation, Vector3.Up);
+        //Moves the snake towards the player
+        Translation += (player.Translation - Translation) * (delta * SnakeSpeed);
+
 
     }
 
     private void _on_Area_body_entered(object body)
     {
         //if the snake touches the player, game over
-        if (body is Player plyr || body is VRPlayer vrplyr)
+        if (body is Player plyr)
         {
             GetTree().Quit();
         }

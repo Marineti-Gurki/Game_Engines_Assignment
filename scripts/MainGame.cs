@@ -22,7 +22,7 @@ public class MainGame : Spatial
 
             OS.VsyncEnabled = false;
             Engine.TargetFps = 90;
-            
+
         }
         Lavalamp = (PackedScene)ResourceLoader.Load("res://scenes/LavaLamp.tscn");
         WE = GetNode<WorldEnvironment>("WorldEnvironment");
