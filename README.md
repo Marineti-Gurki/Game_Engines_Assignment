@@ -15,9 +15,7 @@ Student Number: C19340106
 
 Class Group: Solo
 
-Video:
-
-[![YouTube](videoimagehere)](linkhere)
+[Video](https://youtu.be/umZKT61G0fc)
 
 # Description of the project
 The main concept of this game is that you are placed in a cosmic-like world with a challenge. The challenge is to survive a horror mini-game, and to find the one lava lamp in the world, make sure the snake doesn't catch you. 
